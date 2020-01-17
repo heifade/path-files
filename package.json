@@ -1,9 +1,9 @@
 {
   "name": "path-files",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "bin": {
     "path-files": "./bin/index.js"
   },

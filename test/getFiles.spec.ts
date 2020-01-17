@@ -26,6 +26,16 @@ describe("getFiles", function() {
     expect(files2.includes(`${testPath}/p1/p2/p3/p4/p5/f5.txt`)).to.equal(false);
   });
 
+  it("相对目录 ", () => {
+    // 递归时
+    try {
+      getFiles("./testPath");
+      expect(true).to.equal(false);
+    } catch (e) {
+      expect(e.message).to.equal("path must be absolute path!");
+    }
+  });
+
   it("getFiles filters", () => {
     // 递归时，/f.less 存在
     expect(

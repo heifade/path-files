@@ -1,5 +1,5 @@
 import { readdirSync, statSync } from "fs";
-import { resolve } from "path";
+import { resolve, isAbsolute } from "path";
 
 interface IOptions {
   /**
@@ -14,10 +14,13 @@ interface IOptions {
 
 /**
  * 获取目录下所有文件
- * @param path
+ * @param path 绝对目录
  * @param options 可指定过滤方法
  */
 export function getFiles(path: string, options: IOptions = { recursive: true, filter: undefined }) {
+  if (!isAbsolute(path)) {
+    throw new Error("path must be absolute path!");
+  }
   const files: string[] = [];
   _getFiles(path, files, options);
   return files;
