@@ -12,8 +12,10 @@ work_job:
   stage: deploy
   tags:
     - node-runner
+  only:
+    - tags
   script:
-    # - npm run test
+    - npm run test
     - npm run build
     - echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
     - npm publish
